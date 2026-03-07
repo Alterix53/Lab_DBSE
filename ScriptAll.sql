@@ -3,6 +3,7 @@ GO
 USE QLBongDa
 GO
 
+-- CÂU A, B, C: TẠO BẢNG, RÀNG BUỘC, KHÓA NGOẠI, TẠO DỮ LIỆU
 CREATE TABLE CAUTHU (
     MACT NUMERIC(10,0) IDENTITY(1,1) PRIMARY KEY, /* bắt đầu đếm từ 1, tăng 1 mỗi lần đếm */
     HOTEN NVARCHAR(100) NOT NULL,
@@ -171,6 +172,7 @@ FOREIGN KEY (MACLB)
 REFERENCES CAULACBO(MACLB);
 GO
 
+-- NHẬP DỮ LIỆU
 INSERT INTO QUOCGIA (MAQG, TENQG) VALUES
 ('VN',  N'Việt Nam'),
 ('ANH', N'Anh Quốc'),
@@ -280,6 +282,7 @@ VALUES
 ('SDN', 2009, 4, 2, 1, 1, 0, '2-5', 1, 5);
 
 -- CÂU D: TẠO các user cho DB 
+-- CÁCH THỨC: tạo login -> tạo user cho login đó
 -- Tạo login
 CREATE LOGIN BDAdmin
 WITH PASSWORD = '123456';
