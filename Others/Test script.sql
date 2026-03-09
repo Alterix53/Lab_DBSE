@@ -22,3 +22,29 @@ EXEC sp_helptext 'SP_SEL_ENCRYPT'
 -- Câu g: chạy SP
 EXEC SP_SEL_NO_ENCRYPT N'SHB Đà Nẵng', N'Brazil'
 EXEC SP_SEL_ENCRYPT N'SHB Đà Nẵng', N'Brazil'
+
+
+-- Câu j: chạy các sp theo yêu cầu
+EXECUTE AS USER = 'BDRead';
+EXEC SPCau1 N'SHB Đà Nẵng', N'Brazil';
+EXEC SPCau9 3, 2009;
+REVERT;
+
+EXECUTE AS USER = 'BDU01';
+EXEC SPCau3 N'Việt Nam';
+EXEC SPCau10 3, 2009;
+REVERT;
+
+EXECUTE AS USER = 'BDU03';
+EXEC SPCau1 N'SHB Đà Nẵng', N'Brazil';
+EXEC SPCau10 3, 2009;
+EXEC SPCau3 N'Việt Nam';
+EXEC SPCau4 N'Việt Nam';
+REVERT;
+
+EXECUTE AS USER = 'BDU04';
+EXEC SPCau1 N'SHB Đà Nẵng', N'Brazil';
+EXEC SPCau10 3, 2009;
+EXEC SPCau3 N'Việt Nam';
+EXEC SPCau4 N'Việt Nam';
+REVERT;
