@@ -23,6 +23,58 @@ EXEC sp_helptext 'SP_SEL_ENCRYPT'
 EXEC SP_SEL_NO_ENCRYPT N'SHB Đà Nẵng', N'Brazil'
 EXEC SP_SEL_ENCRYPT N'SHB Đà Nẵng', N'Brazil'
 
+-- Câu i: Thực thi câu lệnh 
+--1
+EXECUTE AS USER = 'BDRead';
+SELECT USER_NAME() AS CurrentUser;
+GO
+SELECT * FROM dbo.vCau1;
+GO
+SELECT * FROM dbo.vCau5;
+GO
+REVERT;
+
+--2
+EXECUTE AS USER = 'BDU01';
+SELECT USER_NAME() AS CurrentUser;
+GO
+SELECT * FROM dbo.vCau2;
+GO
+SELECT * FROM dbo.vCau10;
+GO
+REVERT;
+
+--3
+EXECUTE AS USER = 'BDU03';
+SELECT USER_NAME() AS CurrentUser;
+GO
+SELECT * FROM dbo.vCau1;
+GO
+SELECT * FROM dbo.vCau2;
+GO
+SELECT * FROM dbo.vCau3;
+GO
+SELECT * FROM dbo.vCau4;
+GO
+REVERT;
+GO
+
+--4
+EXECUTE AS USER = 'BDU04';
+SELECT USER_NAME() AS CurrentUser;
+GO
+SELECT * FROM dbo.vCau1;
+GO
+SELECT * FROM dbo.vCau2;
+GO
+SELECT * FROM dbo.vCau3;
+GO
+SELECT * FROM dbo.vCau4;
+GO
+
+REVERT;
+GO
+
 
 -- Câu j: chạy các sp theo yêu cầu
 EXECUTE AS USER = 'BDRead';
